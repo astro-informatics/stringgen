@@ -1,0 +1,5 @@
+tqdm
+numpy
+scipy
+torch==1.9.0
+pwph==1.0.1
