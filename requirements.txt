@@ -3,3 +3,4 @@ numpy
 scipy
 torch==1.9.0
 pywph==1.0.1
+psutil==5.9.1
