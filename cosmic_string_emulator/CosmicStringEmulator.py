@@ -17,7 +17,6 @@ class CosmicStringEmulator:
         norm="auto",
         pbc=True,
         cplx=False,
-        max_iter=100,
         device=0,
     ):
         self.emulation_shape = emulation_shape
@@ -66,7 +65,8 @@ class CosmicStringEmulator:
         
         Examples
         --------
-
+        
+        >>> from cosmic_string_emulator import CosmicStringEmulator
         >>> cosmicStringEmulator = CosmicStringEmulator()
         >>> input_images = np.random.rand(10, 1024, 1024)
         >>> features = cosmicStringEmulator.generate_features(input_images)
@@ -138,13 +138,15 @@ class CosmicStringEmulator:
         Examples
         --------
         This function can be used to create random emulations of 2D cosmic strings simulations similar to Price et al. 2022:
-
+        
+        >>> from cosmic_string_emulator import CosmicStringEmulator
         >>> cosmicStringEmulator = CosmicStringEmulator()
         >>> features = cosmicStringEmulator.download_features()
         >>> emulation = cosmicStringEmulator.generate_features(features)   
 
         Alternatively, the code can be used to generate your own target features and emulate matching images for those:
         
+        >>> from cosmic_string_emulator import CosmicStringEmulator
         >>> cosmicStringEmulator = CosmicStringEmulator()
         >>> input_images = np.random.rand(10, 1024, 1024)
         >>> features = cosmicStringEmulator.generate_features(input_images)
@@ -209,7 +211,7 @@ class CosmicStringEmulator:
                 method="L-BFGS-B",
                 jac=True,
                 tol=None,
-                options=lambda xk, state: print(state["nit"], state["fun"]),
+                options=optim_params,
             )
             final_loss, x_final, niter, msg = (
                 result["fun"],
@@ -225,6 +227,6 @@ class CosmicStringEmulator:
             x_final = x_final.reshape(self.emulation_shape).astype(np.float32)
             x_final = x_final * std + mean
             emulations.append(x_final)
-        return emulations.reshape(
+        return np.array(emulations).reshape(
             n_emulations, self.emulation_shape[0], self.emulation_shape[1]
         )
