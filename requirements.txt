@@ -1,5 +1,6 @@
 tqdm
 numpy
+matplotlib
 scipy
 torch==1.9.0
 pywph==1.0.1
