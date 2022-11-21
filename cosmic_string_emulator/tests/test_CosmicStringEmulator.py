@@ -14,7 +14,7 @@ def test_cse():
         norm="auto",
         pbc=True,
         cplx=False,
-        device=0,
+        device='cpu' # tests on cpu
     )
 
     im = np.random.rand(1,32,32)

@@ -17,12 +17,15 @@ class CosmicStringEmulator:
         norm="auto",
         pbc=True,
         cplx=False,
-        device=0,
+        device=None,
     ):
         self.emulation_shape = emulation_shape
         self.norm = norm  # Normalization
         self.pbc = pbc  # Periodic boundary conditions
-        self.device = device  # Torch device to use for the emulation
+        if device is None:
+            self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        else:
+            self.device = device  # Torch device to use for the emulation
 
         # create wavelet phase harmonic operator
         self.wph_op = pw.WPHOp(
