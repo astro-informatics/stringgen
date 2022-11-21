@@ -23,7 +23,7 @@ class CosmicStringEmulator:
         self.norm = norm  # Normalization
         self.pbc = pbc  # Periodic boundary conditions
         if device is None:
-            self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+            self.device = 0 if torch.cuda.is_available() else "cpu"
         else:
             self.device = device  # Torch device to use for the emulation
 
@@ -34,7 +34,7 @@ class CosmicStringEmulator:
             J=J,
             L=L,
             dn=dn,
-            device=device,
+            device=self.device,
             cplx=cplx,
         )
 
