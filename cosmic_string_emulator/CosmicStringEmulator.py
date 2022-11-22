@@ -1,11 +1,14 @@
 import time
 import torch
 import tqdm
+import os
+import pickle
 
 import numpy as np
 import scipy.optimize as opt
 import pywph as pw
 
+from pkg_resources import resource_filename
 
 class CosmicStringEmulator:
     def __init__(
@@ -39,8 +42,8 @@ class CosmicStringEmulator:
         )
 
     @staticmethod
-    def download_features():
-        r"""Downloads the features used in Price et al. 2022 [1]_
+    def get_features():
+        r"""Loads the features used in Price et al. 2022 [1]_
 
         Returns
         -------
@@ -51,7 +54,9 @@ class CosmicStringEmulator:
         -------
         .. [1] Price et al. 2022 (in prep.)
         """
-        raise NotImplemented
+        file_path = os.path.abspath(resource_filename('cosmic_string_emulator.data', 'features_Price_et_al_2022.pkl'))
+        return pickle.load(open(file_path, "rb"))
+
 
     def generate_features(self, input_images):
         r"""For each image, calculates the scattering coefficients, the corresponding normalisation constants, and image mean and standard deviation, which are used for emulation. 

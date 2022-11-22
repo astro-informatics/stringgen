@@ -41,12 +41,17 @@ setup(
     version = "0.0.1",
     prefix='.',
     url='https://github.com/astro-informatics/cosmic_string_emulator',
-    author='Matthew Price, Matthijs Mars, Matthew Docherty, Auggie Marignier, Jason McEwen & Contributers',
+    author='Matthew Price, Matthijs Mars, Matthew Docherty, Alessio Spurio Mancini, Auggie Marignier, Jason McEwen',
     # author_email='',
     # license='GNU General Public License v3 (GPLv3)',
     install_requires=required,
     description='Cosmic String Emulator',
     long_description_content_type = "text/markdown",
     long_description=long_description,
-    packages=['cosmic_string_emulator']
+    packages=['cosmic_string_emulator', 'cosmic_string_emulator.data'],
+    package_data={
+        "cosmic_string_emulator.data":[
+            "features_Price_et_al_2022.pkl",
+        ],
+    }
 )

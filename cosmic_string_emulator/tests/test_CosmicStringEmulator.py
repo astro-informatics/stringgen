@@ -19,3 +19,7 @@ def test_cse():
     im = np.random.rand(1,32,32)
     features = emulator.generate_features(im)
     emulation = emulator.emulate(features, n_emulations=1, max_iterations=3)
+
+def test_feature_loading():
+    """Test to see if it can load the features from package data"""
+    features = CosmicStringEmulator.get_features()
