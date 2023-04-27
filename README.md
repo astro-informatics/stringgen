@@ -18,7 +18,7 @@ Alternative you can install the code from source by cloning and installing manua
 
 ```
 git clone https://github.com/astro-informatics/stringgen.git
-cd cosmic_string_emulator
+cd stringgen
 bash build_stringgen.sh
 ```
 
@@ -27,17 +27,17 @@ bash build_stringgen.sh
 To generate your own cosmic string maps `stringgen` is as simple follows:
 
 ``` python
-from stringgen import string_emulator
+from stringgen import CosmicStringEmulator
 
 # Configure the emulator
-emulator = string_emulator(
-        emulation_shape=(32, 32),   # Shape of image
-        J=4,                        # Number of wavelet scales
-        L=4                         # Number of directions
+emulator = CosmicStringEmulator(
+        emulation_shape=(1024, 1024),   # Shape of image
+        J=9,                        # Number of wavelet scales
+        L=9                         # Number of directions
     )
 
 # Load latent data-bank
-features = string_emulator.get_features()
+features = emulator.get_features()
 
 # Generate n_emulation=1 synthetic cosmic string maps
 emulation = emulator.emulate(features, n_emulations=1)
@@ -80,7 +80,7 @@ referenced. A BibTeX entry for this reference may look like:
 We provide this code under an MIT open-source licence with the hope that
 it will be of use to a wider community.
 
-Copyright 2023 Mattijs Mars, Matthew Price, Jason McEwen and contributors.
+Copyright 2023 Matthijs Mars, Matthew Price, Jason McEwen and contributors.
 
 `stringgen` is free software made available under the MIT License. For
 details see the LICENSE file.
