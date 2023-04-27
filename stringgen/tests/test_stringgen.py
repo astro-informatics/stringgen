@@ -1,11 +1,11 @@
 import numpy as np
 
-from stringgen import string_emulator
+from stringgen import CosmicStringEmulator
 
 
 def test_cse():
     """Tests a very simple/small emulation case to see whether all functions run through without any issues."""
-    emulator = string_emulator(
+    emulator = CosmicStringEmulator(
         emulation_shape=(32, 32),
         J=4,
         L=4,
@@ -22,4 +22,4 @@ def test_cse():
 
 def test_feature_loading():
     """Test to see if it can load the features from package data"""
-    features = string_emulator.get_features()
+    features = CosmicStringEmulator.get_features()
