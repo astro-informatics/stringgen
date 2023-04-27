@@ -10,6 +10,7 @@ import pywph as pw
 
 from pkg_resources import resource_filename
 
+
 class CosmicStringEmulator:
     def __init__(
         self,
@@ -54,30 +55,31 @@ class CosmicStringEmulator:
         -------
         .. [1] Price et al. 2022 (in prep.)
         """
-        file_path = os.path.abspath(resource_filename('cosmic_string_emulator.data', 'features_Price_et_al_2022.pkl'))
+        file_path = os.path.abspath(
+            resource_filename("stringgen.data", "features_Price_et_al_2022.pkl")
+        )
         return pickle.load(open(file_path, "rb"))
 
-
     def generate_features(self, input_images):
-        r"""For each image, calculates the scattering coefficients, the corresponding normalisation constants, and image mean and standard deviation, which are used for emulation. 
+        r"""For each image, calculates the scattering coefficients, the corresponding normalisation constants, and image mean and standard deviation, which are used for emulation.
 
         Parameters
         ----------
         input_images : array_like
-            Array of input images which will be used to calculate scattering coefficients, to be used in emulation. 
+            Array of input images which will be used to calculate scattering coefficients, to be used in emulation.
 
         Returns
         -------
         features: list
             A list of features for emulation, one set of features for every input image provided. Each element of the list contains a list with: image mean, image standard deviation, scattering coefficients, normalisation constants
-        
+
         Examples
         --------
-        
-        >>> from cosmic_string_emulator import CosmicStringEmulator
-        >>> cosmicStringEmulator = CosmicStringEmulator()
+
+        >>> from string_emulator import CosmicStringEmulator
+        >>> emulator = CosmicStringEmulator()
         >>> input_images = np.random.rand(10, 1024, 1024)
-        >>> features = cosmicStringEmulator.generate_features(input_images)
+        >>> features = emulator.generate_features(input_images)
         """
         assert input_images.shape[-2:] == self.emulation_shape
         assert input_images.ndim == 3
@@ -103,7 +105,9 @@ class CosmicStringEmulator:
             self.wph_op.clear_normalization()
 
             # Calculating scattering coefficients and saving them
-            a_coeffs = self.wph_op.apply(standardised_image, norm="auto", pbc=True)
+            a_coeffs = self.wph_op.apply(
+                standardised_image, norm="auto", pbc=True
+            )
             wph_coeffs.append(np.squeeze(a_coeffs.cpu().detach().numpy()))
 
             del a_coeffs  # delete tensor to clear out device memory
@@ -124,7 +128,9 @@ class CosmicStringEmulator:
         )
 
         # save in list as for every input: mean, std, wph coefficients, normalisation coefficients
-        features = list(zip(im_means, im_stds, wph_coeffs, normalisation_constants))
+        features = list(
+            zip(im_means, im_stds, wph_coeffs, normalisation_constants)
+        )
 
         return features
 
@@ -141,24 +147,24 @@ class CosmicStringEmulator:
         Returns
         -------
         emulation: array
-            A 2D emulated image matching the statistics of a randomly selected target from the set of input features . 
-        
+            A 2D emulated image matching the statistics of a randomly selected target from the set of input features .
+
         Examples
         --------
         This function can be used to create random emulations of 2D cosmic strings simulations similar to Price et al. 2022:
-        
-        >>> from cosmic_string_emulator import CosmicStringEmulator
-        >>> cosmicStringEmulator = CosmicStringEmulator()
-        >>> features = cosmicStringEmulator.download_features()
-        >>> emulation = cosmicStringEmulator.generate_features(features)   
+
+        >>> from string_emulator import CosmicStringEmulator
+        >>> emulator = CosmicStringEmulator()
+        >>> features = emulator.download_features()
+        >>> emulation = emulator.generate_features(features)
 
         Alternatively, the code can be used to generate your own target features and emulate matching images for those:
-        
-        >>> from cosmic_string_emulator import CosmicStringEmulator
-        >>> cosmicStringEmulator = CosmicStringEmulator()
+
+        >>> from string_emulator import CosmicStringEmulator
+        >>> emulator = CosmicStringEmulator()
         >>> input_images = np.random.rand(10, 1024, 1024)
-        >>> features = cosmicStringEmulator.generate_features(input_images)
-        >>> emulation = cosmicStringEmulator.generate_features(features)
+        >>> features = emulator.generate_features(input_images)
+        >>> emulation = emulator.generate_features(features)
         """
         emulations = []
         optim_params = {
@@ -172,7 +178,9 @@ class CosmicStringEmulator:
             print(f"=== Emulation {n} out of {n_emulations} ===")
             # randomly pick one target from features
             random_target = np.random.randint(0, len(features))
-            mean, std, wph_coeffs, normalisation_constants = features[random_target]
+            mean, std, wph_coeffs, normalisation_constants = features[
+                random_target
+            ]
 
             # adjusting normalisation for selected target
             self.wph_op.clear_normalization()
@@ -199,9 +207,15 @@ class CosmicStringEmulator:
                 )
                 for i in range(nb_chunks):
                     coeffs_chunk, indices = self.wph_op.apply(
-                        x_curr, i, norm=self.norm, ret_indices=True, pbc=self.pbc
+                        x_curr,
+                        i,
+                        norm=self.norm,
+                        ret_indices=True,
+                        pbc=self.pbc,
                     )
-                    loss = torch.sum(torch.abs(coeffs_chunk - coeffs[indices]) ** 2)
+                    loss = torch.sum(
+                        torch.abs(coeffs_chunk - coeffs[indices]) ** 2
+                    )
                     loss.backward(retain_graph=True)
                     loss_tot += loss.detach().cpu()
                     del coeffs_chunk, indices, loss

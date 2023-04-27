@@ -1,57 +1,37 @@
-import os
-import shutil
-from setuptools import setup
+from pathlib import Path
+from setuptools import find_packages, setup
 
-import numpy
-
-# clean previous build
-for root, dirs, files in os.walk("./cosmic_string_emulator/", topdown=False):
-    for name in dirs:
-        if (name == "build"):
-            shutil.rmtree(name)
-
-from os import path
-this_directory = path.abspath(path.dirname(__file__))
-
-def read_requirements(file):
-    with open(file) as f:
-        return f.read().splitlines()
-
-def read_file(file):
-   with open(file) as f:
-        return f.read()
-
-long_description = read_file("README.md")
-required = read_requirements("requirements.txt")
+this_directory = Path(__file__).parent
 
 
-include_dirs = [numpy.get_include(),]
+long_description = (this_directory / ".pip_readme.md").read_text()
+requirements = (this_directory / "requirements.txt").read_text().split("\n")
 
-extra_link_args=[]
 
 setup(
-    classifiers=['Programming Language :: Python :: 3.6',
-                 'Programming Language :: Python :: 3.7',
-                 'Programming Language :: Python :: 3.8',
-                 'Operating System :: OS Independent',
-                 'Intended Audience :: Developers',
-                 'Intended Audience :: Science/Research'
-                 ],
-    name = "cosmic_string_emulator",
-    version = "0.0.1",
-    prefix='.',
-    url='https://github.com/astro-informatics/cosmic_string_emulator',
-    author='Matthew Price, Matthijs Mars, Matthew Docherty, Alessio Spurio Mancini, Auggie Marignier, Jason McEwen',
-    # author_email='',
-    # license='GNU General Public License v3 (GPLv3)',
-    install_requires=required,
-    description='Cosmic String Emulator',
-    long_description_content_type = "text/markdown",
+    classifiers=[
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Operating System :: OS Independent",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+    ],
+    name="stringgen",
+    version="0.0.1",
+    url="https://github.com/astro-informatics/stringgen",
+    author="Matthew Price, Matthijs Mars, Matthew Docherty, Alessio Spurio Mancini, Auggie Marignier, Jason McEwen",
+    license="MIT",
+    python_requires=">=3.8",
+    install_requires=requirements,
+    description="Fast emulation of cosmic string anisotropies",
+    long_description_content_type="text/x-rst",
     long_description=long_description,
-    packages=['cosmic_string_emulator', 'cosmic_string_emulator.data'],
+    packages=find_packages(),
+    include_package_data=True,
     package_data={
-        "cosmic_string_emulator.data":[
+        "stringgen.data": [
             "features_Price_et_al_2022.pkl",
         ],
-    }
+    },
 )
