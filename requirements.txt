@@ -1,5 +1,5 @@
 tqdm
-numpy
+numpy==1.19.*
 matplotlib
 scipy
 torch==1.9.*
