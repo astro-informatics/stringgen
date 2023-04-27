@@ -44,16 +44,16 @@ class CosmicStringEmulator:
 
     @staticmethod
     def get_features():
-        r"""Loads the features used in Price et al. 2022 [1]_
+        r"""Loads the features used in Price et al. 2023 [1]_
 
         Returns
         -------
         features: list
-            A list of 300 features for cosmic string emulation containing, image means and standard deviations, scattering coefficients, scattering normalisation constants
+            A list of 300 features for cosmic string emulation containing: image means and standard deviations, scattering coefficients, scattering normalisation constants
 
         References
         -------
-        .. [1] Price et al. 2022 (in prep.)
+        .. [1] Price et al. 2023 (in prep.)
         """
         file_path = os.path.abspath(
             resource_filename("stringgen.data", "features_Price_et_al_2022.pkl")
@@ -77,7 +77,7 @@ class CosmicStringEmulator:
         --------
 
         >>> from string_emulator import CosmicStringEmulator
-        >>> emulator = CosmicStringEmulator()
+        >>> emulator = CosmicStringEmulator(emulation_shape=(1024, 1024))
         >>> input_images = np.random.rand(10, 1024, 1024)
         >>> features = emulator.generate_features(input_images)
         """
@@ -135,28 +135,28 @@ class CosmicStringEmulator:
         return features
 
     def emulate(self, features, n_emulations=1, max_iterations=100):
-        r"""Emulates `n_emulations` images matching the statistics of one of the features provided. Picks a random target from the list of features as emulation target.
+        r"""Emulates `n_emulations` images matching the statistics of the ensemble of features provided. Picks a random target from the list of features as emulation target.
 
         Parameters
         ----------
         features : list
-            List of features for emulation created by `CosmicStringEmulator.calculate_features()` or `CosmicStringEmulator.download_features()`
+            List of features for emulation created by `CosmicStringEmulator.calculate_features()` or `CosmicStringEmulator.get_features()`
         max_iter : int
             The maximum amount of iterations in the optimisation scheme. (Defaults to 100)
 
         Returns
         -------
         emulation: array
-            A 2D emulated image matching the statistics of a randomly selected target from the set of input features .
+            An array with `n_emulations` 2D emulated images matching the statistics of a randomly selected target from the set of input features.
 
         Examples
         --------
-        This function can be used to create random emulations of 2D cosmic strings simulations similar to Price et al. 2022:
+        This function can be used to create random emulations of 2D cosmic strings simulations similar to Price et al. 2023 [1]_:
 
         >>> from string_emulator import CosmicStringEmulator
         >>> emulator = CosmicStringEmulator()
-        >>> features = emulator.download_features()
-        >>> emulation = emulator.generate_features(features)
+        >>> features = emulator.get_features()
+        >>> emulation = emulator.emulate(features, n_emulations=1)
 
         Alternatively, the code can be used to generate your own target features and emulate matching images for those:
 
@@ -164,7 +164,11 @@ class CosmicStringEmulator:
         >>> emulator = CosmicStringEmulator()
         >>> input_images = np.random.rand(10, 1024, 1024)
         >>> features = emulator.generate_features(input_images)
-        >>> emulation = emulator.generate_features(features)
+        >>> emulation = emulator.emulate(features, n_emulations=1)
+
+        References
+        --------
+        .. [1] Price et al. 2023 (in prep.)
         """
         emulations = []
         optim_params = {
