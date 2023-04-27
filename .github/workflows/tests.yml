@@ -20,7 +20,7 @@ jobs:
     - name: Install package
       run: |
         python -m pip install --upgrade pip    
-        bash build_cosmic_string_emulator.sh
+        bash build_stringgen.sh
         pip install pytest
 
     - name: Run tests
