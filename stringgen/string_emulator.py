@@ -17,7 +17,7 @@ class CosmicStringEmulator:
         emulation_shape=(1024, 1024),
         J=9,
         L=9,
-        dn=5,
+        dn=4,
         norm="auto",
         pbc=True,
         cplx=False,
