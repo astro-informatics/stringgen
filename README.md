@@ -7,12 +7,6 @@
 
 `stringgen` is a tool for creating emulations of cosmic string maps with similar statistics to based on the works in Price et al. 2022 (in prep.). It uses wavelet phase harmonics to calculate scattering coefficients of the simulations. These coefficients can then be used to synthesize new realisations which have similar statistics to the original simulations. 
 
-## Quick install :computer:
-You can install `stringgen` using PyPi by running 
-```bash
-pip install stringgen
-```
-
 ## Install from source :computer:
 Alternative you can install the code from source by cloning and installing manually:
 
