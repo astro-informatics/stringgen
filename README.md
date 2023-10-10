@@ -62,12 +62,12 @@ referenced. A BibTeX entry for this reference may look like:
 
 ``` 
 @article{price:stringgen, 
-   AUTHOR      = "Matthew A. Price, Matthijs Mars, Matthew M. Docherty, Alessio Spurio Mancini, Augustin Marignier, Jason. D. McEwen",
-   TITLE       = "Fast emulation of anisotropies induced in the cosmic microwave background by cosmic strings",
-   YEAR        = "2023",
-   JOURNAL     = "The Open Journal of Astrophysics,
-   DOI         = "10.21105/astro.2307.04798",
-   EPRINT      = "arXiv:2307.04798"        
+   author      = "Matthew A. Price, Matthijs Mars, Matthew M. Docherty, Alessio Spurio Mancini, Augustin Marignier, Jason. D. McEwen",
+   title       = "Fast emulation of anisotropies induced in the cosmic microwave background by cosmic strings",
+   year        = "2023",
+   journal     = "The Open Journal of Astrophysics,
+   doi         = "10.21105/astro.2307.04798",
+   eprint      = "arXiv:2307.04798"        
 }
 ```
 
