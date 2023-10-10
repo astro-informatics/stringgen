@@ -1,4 +1,3 @@
-
 {
   "files": [
     "README.md"
@@ -17,31 +16,35 @@
         "review",
         "ideas"
       ]
-    }, 
-    {
-        "login": "MatthijsMars",
-        "name": "Matthijs Mars",
-        "avatar_url": "https://avatars.githubusercontent.com/u/32309817?v=4",
-        "profile": "https://github.com/MatthijsMars",
-        "contributions": [
-            "code",
-            "review",
-            "ideas"
-        ]
     },
     {
-        "login": "auggiemarignier",
-        "name": "Auggie Marignier",
-        "avatar_url": "https://avatars.githubusercontent.com/u/42379892?v=4",
-        "profile": "https://github.com/auggiemarignier",
-        "contributions": ["code"]
+      "login": "MatthijsMars",
+      "name": "Matthijs Mars",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32309817?v=4",
+      "profile": "https://github.com/MatthijsMars",
+      "contributions": [
+        "code",
+        "review",
+        "ideas"
+      ]
     },
     {
-        "login": "alessiospuriomancini",
-        "name": "Alessio Spurio Mancini",
-        "avatar_url": "https://avatars.githubusercontent.com/u/16155457?v=4",
-        "profile": "https://github.com/alessiospuriomancini",
-        "contributions": ["code"]
+      "login": "auggiemarignier",
+      "name": "Auggie Marignier",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42379892?v=4",
+      "profile": "https://github.com/auggiemarignier",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "alessiospuriomancini",
+      "name": "Alessio Spurio Mancini",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16155457?v=4",
+      "profile": "https://github.com/alessiospuriomancini",
+      "contributions": [
+        "code"
+      ]
     },
     {
       "login": "jasonmcewen",
@@ -53,12 +56,22 @@
         "review",
         "ideas"
       ]
+    },
+    {
+      "login": "mmdocherty",
+      "name": "Matthew Docherty",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53608638?v=4",
+      "profile": "http://matthewdocherty.org",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "skipCi": true,
   "repoType": "github",
   "repoHost": "https://github.com",
-  "projectName": "s2fft",
-  "projectOwner": "astro-informatics"
+  "projectName": "stringgen",
+  "projectOwner": "astro-informatics",
+  "commitType": "docs"
 }

@@ -1,6 +1,7 @@
 [![image](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![image](http://img.shields.io/badge/arXiv-2307.04798-orange.svg?style=flat)](https://arxiv.org/abs/2307.04798)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-) <!-- ALL-CONTRIBUTORS-BADGE:END --> 
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END --> 
 [![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # Scattering based cosmic string emulation
@@ -47,6 +48,12 @@ key](https://allcontributors.org/docs/en/emoji-key)):
 <table>
   <tbody>
     <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://cosmomatt.github.io"><img src="https://avatars.githubusercontent.com/u/32554533?v=4?s=100" width="100px;" alt="Matt Price"/><br /><sub><b>Matt Price</b></sub></a><br /><a href="https://github.com/astro-informatics/stringgen/commits?author=CosmoMatt" title="Code">💻</a> <a href="https://github.com/astro-informatics/stringgen/pulls?q=is%3Apr+reviewed-by%3ACosmoMatt" title="Reviewed Pull Requests">👀</a> <a href="#ideas-CosmoMatt" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MatthijsMars"><img src="https://avatars.githubusercontent.com/u/32309817?v=4?s=100" width="100px;" alt="Matthijs Mars"/><br /><sub><b>Matthijs Mars</b></sub></a><br /><a href="https://github.com/astro-informatics/stringgen/commits?author=MatthijsMars" title="Code">💻</a> <a href="https://github.com/astro-informatics/stringgen/pulls?q=is%3Apr+reviewed-by%3AMatthijsMars" title="Reviewed Pull Requests">👀</a> <a href="#ideas-MatthijsMars" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/auggiemarignier"><img src="https://avatars.githubusercontent.com/u/42379892?v=4?s=100" width="100px;" alt="Auggie Marignier"/><br /><sub><b>Auggie Marignier</b></sub></a><br /><a href="https://github.com/astro-informatics/stringgen/commits?author=auggiemarignier" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/alessiospuriomancini"><img src="https://avatars.githubusercontent.com/u/16155457?v=4?s=100" width="100px;" alt="Alessio Spurio Mancini"/><br /><sub><b>Alessio Spurio Mancini</b></sub></a><br /><a href="https://github.com/astro-informatics/stringgen/commits?author=alessiospuriomancini" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.jasonmcewen.org"><img src="https://avatars.githubusercontent.com/u/3181701?v=4?s=100" width="100px;" alt="Jason McEwen"/><br /><sub><b>Jason McEwen</b></sub></a><br /><a href="https://github.com/astro-informatics/stringgen/commits?author=jasonmcewen" title="Code">💻</a> <a href="https://github.com/astro-informatics/stringgen/pulls?q=is%3Apr+reviewed-by%3Ajasonmcewen" title="Reviewed Pull Requests">👀</a> <a href="#ideas-jasonmcewen" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://matthewdocherty.org"><img src="https://avatars.githubusercontent.com/u/53608638?v=4?s=100" width="100px;" alt="Matthew Docherty"/><br /><sub><b>Matthew Docherty</b></sub></a><br /><a href="https://github.com/astro-informatics/stringgen/commits?author=mmdocherty" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
