@@ -1,14 +1,14 @@
 [![image](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![image](http://img.shields.io/badge/arXiv-xxxx.xxxxx-orange.svg?style=flat)](https://arxiv.org/abs/xxxx.xxxxx)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![image](http://img.shields.io/badge/arXiv-2307.04798-orange.svg?style=flat)](https://arxiv.org/abs/2307.04798)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-) <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 [![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # Scattering based cosmic string emulation
 
-`stringgen` is a tool for creating emulations of cosmic string maps with similar statistics to based on the works in Price et al. 2022 (in prep.). It uses wavelet phase harmonics to calculate scattering coefficients of the simulations. These coefficients can then be used to synthesize new realisations which have similar statistics to the original simulations. 
+`stringgen` is a tool for creating emulations of cosmic string maps with statistics similar to those of a single (or small ensemble) of reference simulations. It uses wavelet phase harmonics to calculate a compressed representation of these reference simulations, which may then be used to synthesize new realisations with accurate statistical properties, e.g. 2 and 3 point correlations, skewness, kurtosis, and Minkowski functionals.
 
 ## Install from source :computer:
-Alternative you can install the code from source by cloning and installing manually:
+One may install the code from source by cloning and installing manually:
 
 ```
 git clone https://github.com/astro-informatics/stringgen.git
@@ -62,10 +62,12 @@ referenced. A BibTeX entry for this reference may look like:
 
 ``` 
 @article{price:stringgen, 
-   AUTHOR      = "Matthew A. Price and Matthijs Mars and Jason D. McEwen and Contributors",
-   TITLE       = "TBA",
+   AUTHOR      = "Matthew A. Price, Matthijs Mars, Matthew M. Docherty, Alessio Spurio Mancini, Augustin Marignier, Jason. D. McEwen",
+   TITLE       = "Fast emulation of anisotropies induced in the cosmic microwave background by cosmic strings",
    YEAR        = "2023",
-   EPRINT      = "arXiv:0000.00000"        
+   JOURNAL     = "The Open Journal of Astrophysics,
+   DOI         = "10.21105/astro.2307.04798",
+   EPRINT      = "arXiv:2307.04798"        
 }
 ```
 
